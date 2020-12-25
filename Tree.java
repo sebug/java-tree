@@ -3,14 +3,14 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Tree {
-
     private int size;
+    private double baubleProbability = 0.3;
     public Tree(int size) {
         this.size = size;
     }
 
     private String tile() {
-        if (Math.random() < 0.3) {
+        if (Math.random() < baubleProbability) {
             return "O";
         }
         return "x";
