@@ -9,17 +9,24 @@ public class Tree {
         this.size = size;
     }
 
+    private String tile() {
+        if (Math.random() < 0.3) {
+            return "O";
+        }
+        return "x";
+    }
+
     private String padLeft(String s, int n) {
         return String.format("%" + n + "s", s);
     }
 
-    public String layer(int i) {
+    private String layer(int i) {
         return IntStream.range(1, i)
-            .mapToObj(pos -> "x")
+            .mapToObj(pos -> tile())
             .collect(Collectors.joining(""));
     }
 
-    public Stream<String> branches() {
+    private Stream<String> branches() {
         return IntStream.range(1, size)
             .mapToObj(i -> padLeft(layer(i), size)
             + layer(i + 1)
