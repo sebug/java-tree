@@ -27,15 +27,15 @@ public class Tree {
     }
 
     private Stream<String> branches() {
-        return IntStream.range(1, size)
-            .mapToObj(i -> padLeft(layer(i), size)
+        return IntStream.range(1, size + 1)
+            .mapToObj(i -> padLeft(layer(i), size - 1)
             + layer(i + 1)
             );
     }
 
     public Stream<String> get() {
-        var tip = Stream.of(padLeft("+", size + 1));
-        var trunk = Stream.of(padLeft("|||", size + 2));
+        var tip = Stream.of(padLeft("+", size));
+        var trunk = Stream.of(padLeft("|||", size + 1));
         return Stream.concat(Stream.concat(
             tip,
             branches()),
