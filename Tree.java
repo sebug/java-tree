@@ -34,10 +34,12 @@ public class Tree {
     }
 
     public Stream<String> get() {
-        return Stream.concat(Stream.concat(Stream.of(
-        padLeft("+", size + 1)),
-        branches()),
-            Stream.of(padLeft("|||", size + 2)));
+        var tip = Stream.of(padLeft("+", size + 1));
+        var trunk = Stream.of(padLeft("|||", size + 2));
+        return Stream.concat(Stream.concat(
+            tip,
+            branches()),
+            trunk);
     }
 
     public static void main(String[] args) {
