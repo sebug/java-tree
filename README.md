@@ -9,3 +9,4 @@ Before that I did the following:
 As of then, a java -version worked. For the other binaries, I had to go to the directory and open them once with Terminal to get MacOS to accept them.
 
 
+    java Tree.java
